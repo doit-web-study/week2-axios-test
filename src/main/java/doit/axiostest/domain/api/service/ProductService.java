@@ -21,7 +21,7 @@ public class ProductService {
 
     public ProductResponse createProduct(ProductCreateRequest request) {
         Product newProduct = Product.create(
-                request.name(),
+                request.title(),
                 request.content(),
                 request.price()
         );
@@ -30,9 +30,21 @@ public class ProductService {
 
         return new ProductResponse(
                 savedProduct.getId(),
-                savedProduct.getName(),
+                savedProduct.getTitle(),
                 savedProduct.getContent(),
                 savedProduct.getPrice()
+        );
+    }
+
+    public ProductResponse findProductById(Long productId) {
+        Product product = productRepository.findById(productId)
+                .orElseThrow(() -> new IllegalArgumentException("해당 상품이 존재하지 않습니다. id=" + productId));
+
+        return new ProductResponse(
+                product.getId(),
+                product.getTitle(),
+                product.getContent(),
+                product.getPrice()
         );
     }
 }

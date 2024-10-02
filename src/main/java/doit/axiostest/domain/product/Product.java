@@ -19,20 +19,20 @@ public class Product {
     @Column(name ="product_id")
     private Long id;
 
-    private String name;
+    private String title;
     private String content;
     private int price;
 
     @Builder
-    private Product(String content, String name, int price) {
+    private Product(String content, String title, int price) {
         this.content = content;
-        this.name = name;
+        this.title = title;
         this.price = price;
     }
 
-    public static Product create(String name, String content, int price) {
+    public static Product create(String title, String content, int price) {
         return Product.builder()
-                .name(name)
+                .title(title)
                 .content(content)
                 .price(price)
                 .build();
