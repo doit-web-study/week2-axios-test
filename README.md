@@ -1,6 +1,8 @@
 # week2-axios-test
 ## API 명세
 ### 1. POST /products
+#### 설명
+새로운 product를 생성합니다.
 #### Request
 ```json
 {
@@ -20,6 +22,8 @@
 ```
 
 ### 2. GET /products
+#### 설명
+전체 product 목록을 조회합니다.
 #### Request
 None
 #### Response
@@ -38,6 +42,20 @@ None
         "price": 10000
     }
 ]
+```
+### 3. GET /products/{productId}
+#### 설명
+특정 product를 조회합니다.
+#### Request
+None
+#### Response
+```json
+{
+    "id": 1,
+    "name": "상품명",
+    "content": "상품 설명",
+    "price": 10000
+}
 ```
 
 
